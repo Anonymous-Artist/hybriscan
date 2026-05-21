@@ -1,0 +1,11 @@
+# HybriScan — Reflected XSS Indicator Payloads
+# Research-safe: reflection-detection probes only, no event-handler execution.
+# Each payload is a unique, traceable string injected into query parameters.
+# Format: one payload per line; lines starting with # are comments.
+<hss>
+<hss1337>
+hs"s
+hs'alert
+<script>hss</script>
+"><hss>
+'><hss>

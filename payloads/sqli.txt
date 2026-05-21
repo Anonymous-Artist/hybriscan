@@ -1,0 +1,15 @@
+# HybriScan — SQL Injection Indicator Payloads
+# Research-safe: error-induction only, no UNION/stacked queries.
+# Each payload is appended to a query parameter value.
+# Format: one payload per line; lines starting with # are comments.
+'
+''
+`
+\
+1'
+1"
+1 AND 1=1
+1 AND 1=2
+1 OR 1=1
+1' OR '1'='1
+1" OR "1"="1

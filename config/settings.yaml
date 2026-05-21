@@ -1,0 +1,73 @@
+# ─────────────────────────────────────────────────────────────
+# HybriScan — Master Configuration
+# Aligns with HybriScan paper (Suthar, Gupta, Solanki, 2024)
+# ─────────────────────────────────────────────────────────────
+
+scanner:
+  user_agent: "HybriScan/1.0 (Research Scanner; +https://github.com/yourusername/hybriscan)"
+  timeout: 10                  # seconds per HTTP request
+  max_retries: 2
+  retry_backoff: 1.5           # exponential backoff multiplier
+  concurrency: 10              # async semaphore limit
+  follow_redirects: true
+  max_redirects: 5
+  verify_ssl: false            # disable for lab/CTF targets
+
+crawler:
+  enabled: true
+  max_depth: 2                 # link crawl depth from base URL
+  max_pages: 100               # hard cap on crawled URLs
+  respect_robots_txt: true
+  url_filter_extensions:       # skip non-HTML resources
+    - .png
+    - .jpg
+    - .gif
+    - .css
+    - .js
+    - .ico
+    - .svg
+    - .woff
+    - .pdf
+
+detection:
+  # Per-category pattern banks are defined in core/detector.py
+  # Weights here serve as category-level multipliers (for future ML override)
+  category_weights:
+    admin:      1.0
+    sqli:       1.0
+    login:      1.0
+    dir_listing: 1.0
+    headers:    0.8            # Phase 5 addition: HTTP security header analysis
+
+scoring:
+  # Adaptive threshold — matches Algorithm 2 in the paper
+  initial_threshold: 0.70
+  min_threshold: 0.50
+  max_threshold: 0.82
+  target_fpr: 0.15
+  target_accuracy: 0.75
+  max_iterations: 30
+  aggregation: "max_pool"      # options: max_pool | weighted_avg (future)
+
+payloads:
+  # Phase 8: payload injection testing
+  enabled: false               # disabled until Phase 8
+  sqli_payload_file: "payloads/sqli.txt"
+  xss_payload_file: "payloads/xss.txt"
+  compare_baseline: true       # differential response comparison
+
+reporting:
+  output_dir: "reports/"
+  format: "json"               # json | html (future)
+  include_score_vectors: true
+  include_timing: true
+  verbose: false
+
+wordlist:
+  admin_paths: "config/wordlists/admin_paths.txt"
+  common_paths: "config/wordlists/common_paths.txt"
+
+logging:
+  level: "INFO"                # DEBUG | INFO | WARNING | ERROR
+  log_to_file: true
+  log_file: "reports/hybriscan.log"

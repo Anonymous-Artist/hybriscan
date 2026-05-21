@@ -1,0 +1,29 @@
+# ─────────────────────────────────────────────
+# HybriScan — Requirements
+# Python 3.12+
+# ─────────────────────────────────────────────
+
+# Core async HTTP
+aiohttp==3.9.5
+aiofiles==23.2.1
+
+# HTML parsing
+beautifulsoup4==4.12.3
+lxml==5.2.1
+
+# Configuration
+pyyaml==6.0.1
+
+# Reporting & serialisation
+rich==13.7.1          # terminal output tables/progress
+
+# Visualisation (results charts)
+matplotlib==3.8.4
+numpy==1.26.4
+
+# ML integration placeholders (not active in v1)
+scikit-learn==1.4.2   # future: weight optimisation, classifier
+
+# Dev / testing
+pytest==8.2.0
+pytest-asyncio==0.23.6
