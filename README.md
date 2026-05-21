@@ -372,6 +372,10 @@ The authors accept no liability for misuse.
 
 ## Citation
 
+This project is archived on Zenodo and can be cited using the following DOI:
+
+DOI: https://doi.org/10.5281/zenodo.20320638
+
 ```bibtex
 @article{suthar2024hybriscan,
   title     = {HybriScan: A Category-Aware, Weighted Heuristic Web
