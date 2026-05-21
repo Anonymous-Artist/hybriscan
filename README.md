@@ -380,9 +380,9 @@ DOI: https://doi.org/10.5281/zenodo.20320638
 @article{suthar2024hybriscan,
   title     = {HybriScan: A Category-Aware, Weighted Heuristic Web
                Vulnerability Scanner with Adaptive Threshold Optimisation},
-  author    = {Suthar, Dishant P. and Gupta, Rajveer G. and Solanki, Udbodh V.},
+  author    = {Suthar, Dishant P.and Solanki, Udbodh V.},
   year      = {2024},
-  note      = {Sankalchand Patel University, Gujarat, India}
+  note      = {Gujarat, India}
 }
 ```
 
